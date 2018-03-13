@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Pacifico" rel="stylesheet">
+    <link rel="stylesheet" media="screen" href="resources/vendors/fonts/fa-svg-with-js.css" />
     <link rel="stylesheet" media="screen" href="resources/css/app.css" />
 </head>
 
@@ -17,8 +18,39 @@
             <h1 id="logo">Tic Tac Toe <span>Game</span></h1>
             <a href="" class="settings">Settings</a>
         </header>
+
+        <main class="main">
+
+            <section class="player">
+                <h2>Player 1</h2>
+                <section class="color-picker">
+                    <p>Pick a color:</p>
+                    <label class="color"><input type="radio" name="color"></label>
+                    <label class="color"><input type="radio" name="color"></label>
+                    <label class="color"><input type="radio" name="color"></label>
+                    <label class="color"><input type="radio" name="color"></label>
+                </section>
+                <div class="symbol symbol-circle"><i class="far fa-circle"></i></div>
+            </section>
+
+            <section class="player">
+                <h2>Player 2</h2>
+                <section class="color-picker">
+                    <p>Pick a color:</p>
+                    <label class="color"><input type="radio" name="color"></label>
+                    <label class="color"><input type="radio" name="color"></label>
+                    <label class="color"><input type="radio" name="color"></label>
+                    <label class="color"><input type="radio" name="color"></label>
+                </section>
+                <div class="symbol symbol-cross"><i class="fas fa-times"></i></div>
+            </section>
+
+            <button class="btn-play">Play!</button>
+            
+        </main>
     </div>
-    
+
+    <script src="resources/vendors/fonts/fontawesome-all.min.js"></script>
     <script src="resources/js/app.js"></script>
 </body>
 
