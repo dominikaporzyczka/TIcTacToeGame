@@ -6,7 +6,11 @@
 
 @media screen and (max-width: 550px) {
     body {
-        font-size: 10px;
+        font-size: 12px;
+    }
+
+    .main {
+        margin-top: 20px;
     }
 
     .about-game {
