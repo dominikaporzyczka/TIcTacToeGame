@@ -50,6 +50,7 @@ body {
     font-weight: 700;
 }
 
+/* Nav */
 .settings {
     text-decoration: none;
     color: inherit;
@@ -88,8 +89,9 @@ body {
     border-radius: 10px;
 }
 
+/* Player panel */
 .player {
-    flex-basis: 50%;
+    flex-basis: 40%;
     font-size: 2em;
     text-align: center;
 }
@@ -99,15 +101,25 @@ body {
     font-size: 0.8em;
 }
 
+/* Color picker*/
 input[type="radio"] {
     visibility: hidden;
 }
 
+.color-picker {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.color-picker p {
+    flex-basis: 100%;
+}
+
 .color {
-    display: inline-block;
     height: 30px;
     width: 30px;
-    margin: 0 5px;
+    margin: 10px 10px;
     background: #e67e22;
     cursor: pointer;
     border: 2px solid transparent;
@@ -117,6 +129,7 @@ input[type="radio"] {
     border-color: #fff;
 }
 
+/* Symbols */
 .symbol {
     margin: 20px;
     font-size: 3em;
@@ -128,6 +141,12 @@ input[type="radio"] {
 
 .symbol-cross {
     color: #e67e22;
+}
+
+/* Button Play! */
+.btn-container {
+    flex-basis: 100%;
+    text-align: center;
 }
 
 .btn-play {

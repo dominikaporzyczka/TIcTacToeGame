@@ -1,0 +1,20 @@
+@media screen and (max-width: 1020px) {
+    .container {
+        margin: 20px 20px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    body {
+        font-size: 10px;
+    }
+
+    .about-game {
+        font-size: 2em;
+    }
+
+    .color {
+        height: 50px;
+        width: 50px;
+    }
+}
