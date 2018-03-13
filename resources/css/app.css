@@ -17,4 +17,47 @@ body {
 
 body {
     background: #34495e;
+    color: #fff;
+    font-family: "Lato", sans-serif;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+/*
+*
+* HEADER
+*
+*/
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#logo {
+    margin: 0;
+    font-family: "Pacifico", cursive;
+    font-weight: normal;
+}
+
+#logo span {
+    color: #e67e22;
+    text-transform: uppercase;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+}
+
+.settings {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.5em;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+}
+
+.settings:hover {
+    border-bottom-color: #e67e22;
 }
