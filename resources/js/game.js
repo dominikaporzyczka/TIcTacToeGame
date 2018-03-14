@@ -1,6 +1,9 @@
-function Game() {
+function Game(player1, player2) {
+    this.player1 = player1;
+    this.player2 = player2;
     this.board = document.querySelector('#board');
-    this.rows = document.querySelectorAll
+    this.isPlayer1Turn = true;
+    this.message = document.querySelector('#message');
 
     this.init = function() {
         this.gameArray = this.getClearGameArray(3);
@@ -9,22 +12,36 @@ function Game() {
 
     this.prepareBoard = function(n) {
         let boardContent = document.createDocumentFragment();
+        let player = true;
         for (let i = 0; i < n; i++) {
             let row = document.createElement('tr');
             for (let j = 0; j < n; j++) {
                 let cell = document.createElement('td');
                 row.appendChild(cell);
 
-                this.addEventListenerForFields(i, j, cell, this.gameArray);
+                this.addEventListenerForField(i, j, cell);
             }
             boardContent.appendChild(row);
         }
         this.board.appendChild(boardContent);
     }
 
-    this.addEventListenerForFields = function(i, j, cell, gameArray) {
+    this.addEventListenerForField = function(i, j, cell) {
+        let me = this;
+
         cell.addEventListener('click', function() {
-                gameArray[i][j] = 1;
+            if(me.isPlayer1Turn) {
+                me.gameArray[i][j] = 1;
+                this.innerHTML = me.player1.symbol;
+                this.style.color = me.player1.color;
+            }
+            else {
+                me.gameArray[i][j] = 2;
+                this.innerHTML = me.player2.symbol;
+                this.style.color = me.player2.color;
+            }
+            me.isPlayer1Turn = !me.isPlayer1Turn;
+            me.message.classList.add('disable');
         });
     }
 

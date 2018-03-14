@@ -3,10 +3,26 @@ function Settings() {
     this.colorsPlayer2 = document.querySelectorAll('input[name="color-player2"]');
     this.symbolCircle = document.querySelector('.symbol-circle');
     this.symbolCross = document.querySelector('.symbol-cross');
+    this.btnPlay = document.querySelector('.btn-play');
 
     this.init = function () {
         this.setUpColorPicker(this.colorsPlayer1, this.symbolCircle);
         this.setUpColorPicker(this.colorsPlayer2, this.symbolCross);
+        let player1, player2;
+        const me = this;
+
+        this.btnPlay.addEventListener('click', function() {
+            const settingField = document.querySelector('.main');
+            const boardContainer = document.querySelector('#board-container');
+            settingField.classList.add('disable');
+            boardContainer.classList.add('enable');
+
+            player1 = me.getPlayer1();
+            player2 = me.getPlayer2();
+
+            const game = new Game(player1, player2);
+            game.init();
+        });
     }
 
     this.setUpColorPicker = function (colorsForPlayer, symbol) {
