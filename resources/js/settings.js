@@ -12,11 +12,9 @@ function Settings() {
         const me = this;
 
         this.btnPlay.addEventListener('click', function() {
-            const settingField = document.querySelector('.main');
-            const boardContainer = document.querySelector('#board-container');
-            settingField.classList.add('disable');
-            boardContainer.classList.add('enable');
-
+            const container = document.querySelector('.container');
+            container.classList.add('active-game');
+            
             player1 = me.getPlayer1();
             player2 = me.getPlayer2();
 

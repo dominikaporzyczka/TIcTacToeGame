@@ -5,12 +5,12 @@ function Game(player1, player2) {
     this.isPlayer1Turn = true;
     this.message = document.querySelector('#message');
 
-    this.init = function() {
+    this.init = function () {
         this.gameArray = this.getClearGameArray(3);
         this.prepareBoard(3);
     }
 
-    this.prepareBoard = function(n) {
+    this.prepareBoard = function (n) {
         let boardContent = document.createDocumentFragment();
         let player = true;
         for (let i = 0; i < n; i++) {
@@ -26,11 +26,10 @@ function Game(player1, player2) {
         this.board.appendChild(boardContent);
     }
 
-    this.addEventListenerForField = function(i, j, cell) {
+    this.addEventListenerForField = function (i, j, cell) {
         let me = this;
-
-        cell.addEventListener('click', function() {
-            if(me.isPlayer1Turn) {
+        const cellClickHandler = function () {
+            if (me.isPlayer1Turn) {
                 me.gameArray[i][j] = 1;
                 this.innerHTML = me.player1.symbol;
                 this.style.color = me.player1.color;
@@ -42,13 +41,17 @@ function Game(player1, player2) {
             }
             me.isPlayer1Turn = !me.isPlayer1Turn;
             me.message.classList.add('disable');
-        });
+
+            cell.removeEventListener('click', cellClickHandler);
+        };
+
+        cell.addEventListener('click', cellClickHandler);
     }
 
-    this.getClearGameArray = function(n) {
+    this.getClearGameArray = function (n) {
         const gameArray = [];
 
-        for(let i = 0; i < n; i++) {
+        for (let i = 0; i < n; i++) {
             gameArray[i] = [];
         }
 

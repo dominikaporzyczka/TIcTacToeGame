@@ -51,7 +51,8 @@ body {
 }
 
 /* Nav */
-.settings {
+.reset-game {
+    visibility: hidden;
     text-decoration: none;
     color: inherit;
     font-size: 1.5em;
@@ -60,7 +61,7 @@ body {
     border-bottom: 2px solid transparent;
 }
 
-.settings:hover {
+.reset-game:hover {
     border-bottom-color: #e67e22;
 }
 
@@ -69,7 +70,7 @@ body {
 * MAIN
 *
 */
-.main {
+#main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -78,10 +79,6 @@ body {
     border: 2px solid #e67e22;
     box-shadow: 10px 10px 30px 2px #313131;
     border-radius: 10px;
-}
-
-.main.disable {
-    display: none;
 }
 
 /* Player panel */
@@ -188,10 +185,6 @@ input[type="radio"] {
     text-align: center;
 }
 
-#board-container.enable {
-    display: block;
-}
-
 #message {
     margin: 20px 0 40px 0;
     font-size: 2em;
@@ -224,4 +217,17 @@ input[type="radio"] {
 #board tr:nth-of-type(2) td:nth-of-type(2) {
     border-left: 2px solid #fff;
     border-right: 2px solid #fff;
+}
+
+/* STYLES FOR ACTIVE GAME*/
+.container.active-game #board-container {
+    display: block;
+}
+
+.container.active-game #main {
+    display: none;
+}
+
+.container.active-game .reset-game {
+    visibility: visible;
 }
