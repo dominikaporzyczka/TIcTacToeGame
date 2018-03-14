@@ -211,6 +211,7 @@ input[type="radio"] {
 #board td {
     width: 33.3333%;
     height: 170px;
+    cursor: pointer;
 }
 
 #board tr:nth-of-type(2) td{

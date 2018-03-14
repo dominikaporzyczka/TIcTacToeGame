@@ -4,6 +4,26 @@
     }
 }
 
+@media screen and (max-width: 900px) {
+    #board {
+        width: 60%;
+    }
+
+    #board td {
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #board {
+        width: 70%;
+    }
+
+    #board td {
+        height: 130px;
+    }
+}
+
 @media screen and (max-width: 550px) {
     body {
         font-size: 12px;
@@ -12,10 +32,26 @@
     .main {
         margin-top: 20px;
     }
+
+    #board {
+        width: 70%;
+    }
+
+    #board td {
+        height: 100px;
+    }
 }
 
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 350px) {
     #logo {
         font-size: 1.5em;
+    }
+
+    #board {
+        width: 90%;
+    }
+
+    #board td {
+        height: 100px;
     }
 }
