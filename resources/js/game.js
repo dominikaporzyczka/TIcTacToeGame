@@ -59,8 +59,8 @@ function Game(player1, player2) {
                 else {
                     winMessage.textContent = 'Draw! :)'
                 }
-            cell.removeEventListener('click', cellClickHandler);
             }
+            cell.removeEventListener('click', cellClickHandler);
         };
 
         cell.addEventListener('click', cellClickHandler);
