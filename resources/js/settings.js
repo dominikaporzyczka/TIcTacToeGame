@@ -9,14 +9,13 @@ function Settings() {
         this.setUpColorPicker(this.colorsPlayer1, this.symbolCircle);
         this.setUpColorPicker(this.colorsPlayer2, this.symbolCross);
         let player1, player2;
-        const me = this;
 
-        this.btnPlay.addEventListener('click', function() {
+        this.btnPlay.addEventListener('click', () => {
             const container = document.querySelector('.container');
             container.classList.add('active-game');
             
-            player1 = me.getPlayer1();
-            player2 = me.getPlayer2();
+            player1 = this.getPlayer1();
+            player2 = this.getPlayer2();
 
             const game = new Game(player1, player2);
             game.init();
