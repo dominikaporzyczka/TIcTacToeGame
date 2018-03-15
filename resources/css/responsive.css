@@ -22,6 +22,10 @@
     #board td {
         height: 130px;
     }
+
+    .winner-message {
+        margin: 20% auto;
+    }
 }
 
 @media screen and (max-width: 550px) {
@@ -39,6 +43,10 @@
 
     #board td {
         height: 100px;
+    }
+
+    .winner-message {
+        width: 90%;
     }
 }
 

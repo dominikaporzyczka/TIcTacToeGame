@@ -26,6 +26,24 @@ body {
     margin: 20px auto;
 }
 
+/* BUTTONS */
+.btn-play {
+    padding: 20px 40px;
+    margin: 40px 0;
+    font-size: 2em;
+    letter-spacing: 1px;
+    background: #e67e22;
+    color: #fff;
+    border: 2px solid #e67e22;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn-play:hover {
+    background: transparent;
+    color: #e67e22;
+}
+
 /*
 *
 * HEADER
@@ -157,23 +175,6 @@ input[type="radio"] {
     text-align: center;
 }
 
-.btn-play {
-    padding: 20px 40px;
-    margin: 40px 0;
-    font-size: 2em;
-    letter-spacing: 1px;
-    background: #e67e22;
-    color: #fff;
-    border: 2px solid #e67e22;
-    outline: none;
-    cursor: pointer;
-}
-
-.btn-play:hover {
-    background: transparent;
-    color: #e67e22;
-}
-
 /*
 *
 * BOARD
@@ -230,4 +231,43 @@ input[type="radio"] {
 
 .container.active-game .reset-game {
     visibility: visible;
+}
+
+.container.end-game td {
+    pointer-events: none;
+}
+
+.container.end-game #winner-message-container {
+    display: block;
+}
+
+#winner-message-container {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    text-align: center;
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+}
+
+.winner-message {
+    width: 60%;
+    margin: 10% auto;
+    background: #34495e;
+    border-radius: 10px;
+    box-shadow: 10px 10px 30px 2px #313131;
+}
+
+.winner-message p {
+    padding-top: 40px;
+    font-size: 2em;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+}
+
+.winner-message .btn-play {
+    margin-bottom: 40px;
 }
