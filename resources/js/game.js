@@ -35,7 +35,7 @@ function Game(player1, player2) {
                 this.style.color = me.player1.color;
             }
             else {
-                me.gameArray[i][j] = 2;
+                me.gameArray[i][j] = -1;
                 this.innerHTML = me.player2.symbol;
                 this.style.color = me.player2.color;
             }
@@ -48,6 +48,52 @@ function Game(player1, player2) {
         cell.addEventListener('click', cellClickHandler);
     }
 
+    this.getGameStatus = function (array) {
+        const arrLen = array.length;
+
+        let firstDiagonalSum = 0;
+        let secondDiagonalSum = 0;
+
+        for (let i = 0; i < arrLen; i++) {
+            let rowSum = 0;
+            let colSum = 0;
+
+            for (let j = 0; j < arrLen; j++) {
+                rowSum += array[i][j];
+                colSum += array[j][i];
+            }
+
+            if (rowSum !== 0 && rowSum % arrLen === 0) {
+                return rowSum / arrLen;
+            }
+
+            if (colSum !== 0 && colSum % arrLen === 0) {
+                return colSum / arrLen;
+            }
+
+            firstDiagonalSum += array[i][i];
+            secondDiagonalSum += array[i][arrLen - 1 - i];
+        }
+
+        if (firstDiagonalSum !== 0 && firstDiagonalSum % arrLen === 0) {
+            return firstDiagonalSum / arrLen;
+        }
+
+        if (secondDiagonalSum !== 0 && secondDiagonalSum % arrLen === 0) {
+            return secondDiagonalSum / arrLen;
+        }
+
+        for (let i = 0; i < arrLen; i++) {
+            for (let j = 0; j < arrLen; j++) {
+                if (array[i][j] === null) {
+                    return null;
+                }
+            }
+        }
+
+        return 0;
+    }
+
     this.getClearGameArray = function (n) {
         const gameArray = [];
 
@@ -57,7 +103,7 @@ function Game(player1, player2) {
 
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < n; j++) {
-                gameArray[i][j] = '';
+                gameArray[i][j] = null;
             }
         }
 
