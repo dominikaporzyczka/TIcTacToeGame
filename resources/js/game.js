@@ -23,6 +23,7 @@ function Game(player1, player2) {
             }
             boardContent.appendChild(row);
         }
+        this.board.innerHTML = '';
         this.board.appendChild(boardContent);
     }
 
@@ -42,7 +43,24 @@ function Game(player1, player2) {
             me.isPlayer1Turn = !me.isPlayer1Turn;
             me.message.classList.add('disable');
 
+            const gameStatus = me.getGameStatus(me.gameArray);
+            if (gameStatus === 0 || gameStatus === 1 || gameStatus === -1) {
+                const container = document.querySelector('.container');
+                const winMessage = document.querySelector('.winner-message p');
+                setTimeout(() => {
+                    container.classList.add('end-game');
+                }, 100);
+                if (gameStatus === 1) {
+                    winMessage.textContent = 'Player 1 won!'
+                }
+                else if (gameStatus === -1) {
+                    winMessage.textContent = 'Player 2 won!'
+                }
+                else {
+                    winMessage.textContent = 'Draw! :)'
+                }
             cell.removeEventListener('click', cellClickHandler);
+            }
         };
 
         cell.addEventListener('click', cellClickHandler);

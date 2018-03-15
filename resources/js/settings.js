@@ -3,23 +3,26 @@ function Settings() {
     this.colorsPlayer2 = document.querySelectorAll('input[name="color-player2"]');
     this.symbolCircle = document.querySelector('.symbol-circle');
     this.symbolCross = document.querySelector('.symbol-cross');
-    this.btnPlay = document.querySelector('.btn-play');
+    this.btnPlay = document.querySelectorAll('.btn-play');
 
     this.init = function () {
         this.setUpColorPicker(this.colorsPlayer1, this.symbolCircle);
         this.setUpColorPicker(this.colorsPlayer2, this.symbolCross);
         let player1, player2;
 
-        this.btnPlay.addEventListener('click', () => {
-            const container = document.querySelector('.container');
-            container.classList.add('active-game');
-            
-            player1 = this.getPlayer1();
-            player2 = this.getPlayer2();
-
-            const game = new Game(player1, player2);
-            game.init();
-        });
+        for (let i = 0; i < this.btnPlay.length; i++){
+            this.btnPlay[i].addEventListener('click', () => {
+                const container = document.querySelector('.container');
+                container.classList.add('active-game');
+                container.classList.remove('end-game');
+                
+                player1 = this.getPlayer1();
+                player2 = this.getPlayer2();
+    
+                const game = new Game(player1, player2);
+                game.init();
+            });
+        }
     }
 
     this.setUpColorPicker = function (colorsForPlayer, symbol) {
