@@ -22,10 +22,6 @@
     #board td {
         height: 130px;
     }
-
-    .winner-message {
-        margin: 20% auto;
-    }
 }
 
 @media screen and (max-width: 550px) {

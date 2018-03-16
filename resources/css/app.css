@@ -44,6 +44,27 @@ body {
     color: #e67e22;
 }
 
+/* STYLES FOR ACTIVE GAME*/
+.container.active-game #board-container {
+    display: block;
+}
+
+.container.active-game #main {
+    display: none;
+}
+
+.container.active-game .reset-game {
+    visibility: visible;
+}
+
+.container.end-game td {
+    pointer-events: none;
+}
+
+.container.end-game #winner-message-container {
+    display: block;
+}
+
 /*
 *
 * HEADER
@@ -220,27 +241,11 @@ input[type="radio"] {
     border-right: 2px solid #fff;
 }
 
-/* STYLES FOR ACTIVE GAME*/
-.container.active-game #board-container {
-    display: block;
-}
-
-.container.active-game #main {
-    display: none;
-}
-
-.container.active-game .reset-game {
-    visibility: visible;
-}
-
-.container.end-game td {
-    pointer-events: none;
-}
-
-.container.end-game #winner-message-container {
-    display: block;
-}
-
+/*
+*
+* END MESSAGE
+*
+*/
 #winner-message-container {
     display: none;
     position: fixed;
