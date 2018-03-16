@@ -1,3 +1,7 @@
+/**
+ * @description Game settings and game initialization
+ * 
+ */
 function Settings() {
     this.colorsPlayer1 = document.querySelectorAll('input[name="color-player1"]');
     this.colorsPlayer2 = document.querySelectorAll('input[name="color-player2"]');
@@ -5,6 +9,7 @@ function Settings() {
     this.symbolCross = document.querySelector('.symbol-cross');
     this.btnPlay = document.querySelectorAll('.btn-play');
 
+    /** Game itialization */
     this.init = function () {
         this.setUpColorPicker(this.colorsPlayer1, this.symbolCircle);
         this.setUpColorPicker(this.colorsPlayer2, this.symbolCross);
@@ -25,6 +30,7 @@ function Settings() {
         }
     }
 
+    /** Sets color of symbol */
     this.setUpColorPicker = function (colorsForPlayer, symbol) {
         for (let i = 0; i < colorsForPlayer.length; i++) {
             colorsForPlayer[i].addEventListener('change', function () {
@@ -33,18 +39,21 @@ function Settings() {
         }
     }
 
+    /** Gets data for player1 */
     this.getPlayer1 = function () {
         const color = this.getValueFromRadio(this.colorsPlayer1);
 
         return new Player(color, '<i class="far fa-circle"></i>');
     }
 
+    /** Gets data for player2 */
     this.getPlayer2 = function () {
         const color = this.getValueFromRadio(this.colorsPlayer2);
 
         return new Player(color, '<i class="fas fa-times"></i>');
     }
 
+    /** Gets color picked by player */
     this.getValueFromRadio = function (radios) {
         for (var i = 0, length = radios.length; i < length; i++) {
             if (radios[i].checked) {

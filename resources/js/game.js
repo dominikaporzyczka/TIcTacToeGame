@@ -1,3 +1,9 @@
+/**
+ * @description Generates game board and sets game logic
+ * 
+ * @param {any} player1 
+ * @param {any} player2 
+ */
 function Game(player1, player2) {
     this.player1 = player1;
     this.player2 = player2;
@@ -5,14 +11,15 @@ function Game(player1, player2) {
     this.isPlayer1Turn = true;
     this.message = document.querySelector('#message');
 
+    /** Initialization */
     this.init = function () {
         this.gameArray = this.getClearGameArray(3);
         this.prepareBoard(3);
     }
 
+    /** Generates game board */
     this.prepareBoard = function (n) {
         let boardContent = document.createDocumentFragment();
-        let player = true;
         for (let i = 0; i < n; i++) {
             let row = document.createElement('tr');
             for (let j = 0; j < n; j++) {
@@ -27,6 +34,7 @@ function Game(player1, player2) {
         this.board.appendChild(boardContent);
     }
 
+    /** Adds event listener for cell and checks game status */
     this.addEventListenerForField = function (i, j, cell) {
         let me = this;
         const cellClickHandler = function () {
@@ -41,9 +49,11 @@ function Game(player1, player2) {
                 this.style.color = me.player2.color;
             }
             me.isPlayer1Turn = !me.isPlayer1Turn;
+            /* Disable message on the top of the board */
             me.message.classList.add('disable');
 
             const gameStatus = me.getGameStatus(me.gameArray);
+            /* If game is over */
             if (gameStatus === 0 || gameStatus === 1 || gameStatus === -1) {
                 const container = document.querySelector('.container');
                 const winMessage = document.querySelector('.winner-message p');
@@ -66,6 +76,12 @@ function Game(player1, player2) {
         cell.addEventListener('click', cellClickHandler);
     }
 
+    /** Gets game status and returns
+     * null when the game is not over
+     * 0 when draw
+     * 1 when player1 win
+     * -1 when player2 win
+     */
     this.getGameStatus = function (array) {
         const arrLen = array.length;
 
@@ -112,6 +128,7 @@ function Game(player1, player2) {
         return 0;
     }
 
+    /** Prepares empty array corresponding with game board */
     this.getClearGameArray = function (n) {
         const gameArray = [];
 
